@@ -1,4 +1,3 @@
-# Senior project about gardening!
 
 # 🪴🪻🌸 Flora and Friends 🌸🪻🪴
 
