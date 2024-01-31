@@ -1,6 +1,6 @@
 # Senior project about gardening!
 
-#                                                                                        🪴🪻🌸 Flora and Friends 🌸🪻🪴
+# 🪴🪻🌸 Flora and Friends 🌸🪻🪴
 
 ## Author Information
 * **Name**: Morgan Mali
