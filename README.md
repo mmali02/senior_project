@@ -1,5 +1,13 @@
 # Senior project about gardening!
 
+#                                                                                        🪴🪻🌸 Flora and Friends 🌸🪻🪴
+
+## Author Information
+* **Name**: Morgan Mali
+* **Email**: mmali@westmont.edu
+
+#
+
 This project will be a website that allows students and future garden club presidents to look up and see what vegetables, fruits and native plants/flowers in Santa Barbara they can grow based on specific conditions. The elements that you can filter on are soil type, amount of sunlight, amount of water and time of year. Once you have filtered on different elements, there will be plants with their specific information about what time of year to plant them, their water usage, their sunlight needs, and what type of soil works best for them, as well as general information about the plant (such as spacing between planting seeds, size, etc.). As well as, I am hoping to create a form on the website that allows students to have a say in what vegetables the garden will be able to grow for the DC. 
 
 ## Motivation:
