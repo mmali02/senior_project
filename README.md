@@ -23,3 +23,7 @@ The problem I am trying to solve is creating an organized system that provides i
 
 ## Proposal:
 My proposal is to create a cohesive website that contains information on vegetables, fruits and native plants/flowers from Santa Barbara in order to help relieve some of the pressure from future garden club presidents who may not have extra time to research during their busy schedules.
+
+## Resources used:
+
+“How to Create Python Django Website in Pycharm.” YouTube, Uploaded by Techlearners By Neeraj Saxena, 5 August 2022, www.youtube.com/watch?v=4XYsODaQ6Ok. 
