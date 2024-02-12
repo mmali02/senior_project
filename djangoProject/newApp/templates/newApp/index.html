@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name = "viewport" content="width=device-width, initial-scale=1">
     <title>Navigation Bar</title>
+    <style type="text/css">
+        {
+        text-decoration: none;
+        }
+        .navbar{
+            background: #264b5d; font-family: Calibri; padding-right: 15px; padding-left: 15px;
+        }
+        .navdiv{
+            display: flex; align-items: center; justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
 <h1> Flora and Friends </h1>
     <nav class="navbar">
 <!--div will hold all the elements of the navigation bar-->
         <div class="navdiv">
-            <div class = "logo"><a href="#">Flora and Friends</a><div>
+            <div class = "logo"><a href="#">Flora and Friends</a></div>
+            <ul>
+                <li><a href="#">Garden</a></li>
+                <li><a href="#">Author</a></li>
+                <li><a href="#">Form</a></li>
+            </ul>
         </div>
     </nav>
 </body>
