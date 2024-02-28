@@ -1,3 +1,12 @@
 from django.db import models
 
-# Create your models here.
+class Plant(models.Model):
+    name = models.CharField('Plant name', max_length=200)
+    latin_name = models.CharField('Latin name', max_length=200)
+    season = models.CharField(max_length=120)
+    water = models.CharField(max_length=120)
+    soil = models.CharField(max_length=120)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
