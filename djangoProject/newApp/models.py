@@ -10,7 +10,7 @@ class Vegetable(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.name
+        return self.Vegetable.name
 
 class Fruit(models.Model):
     name = models.CharField('Fruit name', max_length=200)
@@ -22,7 +22,7 @@ class Fruit(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.name
+        return self.Fruit.name
 
 class Plant(models.Model):
     name = models.CharField('Plant name', max_length=200)
@@ -34,4 +34,4 @@ class Plant(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.name
+        return self.Plant.name
