@@ -20,5 +20,4 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('newApp.urls')),
-    path('data', views.all_data, name="flora_info"),
 ]
