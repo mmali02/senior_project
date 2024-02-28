@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Vegetables
-from .models import Fruits
-from .models import Plants
+from .models import Vegetable
+from .models import Fruit
+from .models import Plant
 
-admin.site.register(Vegetables)
-admin.site.register(Fruits)
-admin.site.register(Plants)
+admin.site.register(Vegetable)
+admin.site.register(Fruit)
+admin.site.register(Plant)

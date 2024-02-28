@@ -1,6 +1,6 @@
 from django.db import models
 
-class Vegetables(models.Model):
+class Vegetable(models.Model):
     name = models.CharField('Vegetable name', max_length=200)
     latin_name = models.CharField('Latin name', max_length=200)
     season = models.CharField(max_length=120)
@@ -11,7 +11,7 @@ class Vegetables(models.Model):
     def __str__(self):
         return self.name
 
-class Fruits(models.Model):
+class Fruit(models.Model):
     name = models.CharField('Fruit name', max_length=200)
     latin_name = models.CharField('Latin name', max_length=200)
     season = models.CharField(max_length=120)
@@ -22,7 +22,7 @@ class Fruits(models.Model):
     def __str__(self):
         return self.name
 
-class Plants(models.Model):
+class Plant(models.Model):
     name = models.CharField('Plant name', max_length=200)
     latin_name = models.CharField('Latin name', max_length=200)
     season = models.CharField(max_length=120)
