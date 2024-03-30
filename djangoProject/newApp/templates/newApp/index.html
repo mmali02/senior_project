@@ -8,21 +8,31 @@
         *{
         text-decoration: none;
         }
+
+        body {
+            background-color: #bde0c0;
+        }
         .navbar{
-            background: #3d8265; font-family: Georgia; padding-right: 15px; padding-left: 15px;
+            background-color: #3d8265; font-family: Georgia;
+            /*padding-right: 15px;*/
+            /*padding-left: 15px;*/
+            /*width: 100%;*/
+            /*height: auto;*/
         }
         .navdiv{
             display: flex; align-items: center; justify-content: space-between;
         }
         .logo a{
-            font-size: 35px; font-weight: 600; color: white;
+            font-size: 35px; font-weight: 600; color: #ecf1ec;
         }
         li{
             list-style: none; display: inline-block;
         }
         li a {
-            color: white; font-size: 20px; font-weight: bold; margin-right: 25px;
+            color: #ecf1ec; font-size: 20px; font-weight: bold; margin-right: 25px
         }
+
+
     </style>
 </head>
 <body>
@@ -32,19 +42,23 @@
         <div class="navdiv">
             <div class = "logo"><a href="#">Flora and Friends</a></div>
             <ul>
-                <li><a href="#">Westmont Garden</a></li>
+                <li><a href="garden.html">Westmont Garden</a></li>
                 <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdIb8ELM0L_m_T9loALpiSHbyGhSgu2G7BoaA82Saj-4VVn3A/viewform?usp=sf_link">Form</a></li>
                 <li><a href="#">Search</a></li>
-            <li class="nav-item">
-                <a class="nav-link" href="/newApp/garden">Westmont Garden</a>
-            </li>
             </ul>
         </div>
     </nav>
 
-<img src="(\\wsl$\Ubuntu-22.04\home\mmali\Code\CS195\senior_project\djangoProject\newApp\templates\images\westmont garden 2024.jpg)">
-<!--<img src="{% images "trying.jpg" % }">-->
+<!--<style>-->
+<!--    body {-->
+<!--            background-color: #007580; /* Slightly lighter Turquoise */-->
+<!--            color: #ffffff; /* White */-->
+<!--            font-family: 'Avenir', sans-serif;-->
+<!--        }-->
+<!--</style>-->
 
+
+<!--<img src="djangoProject/newApp/templates/images/westmont garden 2024.jpg">-->
 
 </body>
 </html>
