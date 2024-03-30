@@ -7,10 +7,13 @@
     <style type="text/css">
         *{
         text-decoration: none;
+        margin: 0;
+        padding: 0;
         }
 
         body {
             background-color: #bde0c0;
+            margin: 0; /* Remove default body margin */
         }
         .navbar{
             background-color: #3d8265; font-family: Georgia;
@@ -18,18 +21,30 @@
             /*padding-left: 15px;*/
             /*width: 100%;*/
             /*height: auto;*/
+
+            font-family: Georgia;
+            width: 100%; /* Cover the entire width of the viewport */
         }
         .navdiv{
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px; /* Add padding to adjust the content */
         }
         .logo a{
-            font-size: 35px; font-weight: 600; color: #ecf1ec;
+            font-size: 35px;
+            font-weight: 600;
+            color: #ecf1ec;
         }
         li{
-            list-style: none; display: inline-block;
+            list-style: none;
+            display: inline-block;
         }
         li a {
-            color: #ecf1ec; font-size: 20px; font-weight: bold; margin-right: 25px
+            color: #ecf1ec;
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 25px
         }
 
 
@@ -40,23 +55,18 @@
     <nav class="navbar">
 <!--div will hold all the elements of the navigation bar-->
         <div class="navdiv">
-            <div class = "logo"><a href="#">Flora and Friends</a></div>
+            <div class = "logo"><a href="{% url 'index' %}">Flora and Friends</a></div>
             <ul>
-                <li><a href="garden.html">Westmont Garden</a></li>
+                <li><a href="{% url 'garden' %}">Westmont Garden</a></li>
+<!--                <li><a href="djangoProject/newApp/templates/newApp/garden.html">Westmont Garden</a></li>-->
                 <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdIb8ELM0L_m_T9loALpiSHbyGhSgu2G7BoaA82Saj-4VVn3A/viewform?usp=sf_link">Form</a></li>
                 <li><a href="#">Search</a></li>
             </ul>
         </div>
     </nav>
 
-<!--<style>-->
-<!--    body {-->
-<!--            background-color: #007580; /* Slightly lighter Turquoise */-->
-<!--            color: #ffffff; /* White */-->
-<!--            font-family: 'Avenir', sans-serif;-->
-<!--        }-->
-<!--</style>-->
-
+<img src="{% static 'westmont garden 2024.jpg' %}" alt="Image">
+<img src="images/trying.jpg">
 
 <!--<img src="djangoProject/newApp/templates/images/westmont garden 2024.jpg">-->
 

@@ -6,3 +6,7 @@ from django.shortcuts import render
 def index(request):
     return render(request, "newApp/index.html", {})
 
+# Defining a view for inside garden.html, (turning a request into a response)
+def garden(request):
+    return render(request, "newApp/garden.html", {})
+
