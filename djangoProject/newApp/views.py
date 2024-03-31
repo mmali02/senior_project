@@ -12,3 +12,7 @@ def garden(request):
 
 def references(request):
     return render(request, "newApp/references.html", {})
+
+def external_reference(request, url):
+    # Logic to handle the external reference URL
+    return render(request, 'external_reference.html', {'external_url': url})

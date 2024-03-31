@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('garden/', views.garden, name='garden'),
-    path('references/', views.references, name='references')
+    path('references/', views.references, name='references'),
+    path('references/<path:url>/', views.external_reference, name='external_reference'),
+    # Other URL patterns
 ]
