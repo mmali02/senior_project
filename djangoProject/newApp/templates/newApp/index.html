@@ -17,14 +17,29 @@
             background-color: #bde0c0;
             margin: 0; /* Remove default body margin */
         }
+         .card {
+            margin-bottom: 20px;
+            background-color: #f1f1f1; /* White background for cards */
+            border: 1px solid #dee2e6; /* Light Grey border for cards */
+            border-radius: 8px; /* Rounded corners for cards */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for cards */
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-body p {
+            margin-bottom: 15px; /* Add margin bottom to paragraphs */
+        }
+
+
         .navbar{
             background-color: #3d8265; font-family: Georgia;
             /*padding-right: 15px;*/
             /*padding-left: 15px;*/
             /*width: 100%;*/
             /*height: auto;*/
-
-            font-family: Georgia;
             width: 100%; /* Cover the entire width of the viewport */
         }
         .navdiv{
@@ -56,6 +71,13 @@
             margin-right: 25px
         }
 
+         p {
+             font-size: 18px;
+             padding-left: 20px;
+             padding-right: 20px;
+             padding-bottom: 10px;
+             padding-top: 10px;
+         }
     </style>
 </head>
 <body>
@@ -76,7 +98,16 @@
 
 <img src="{% static 'admin/img/trying.jpg' %}">
 
+<div class="card">
+            <div class="card-body">
+<p> Welcome to Flora and Friends! This page is designed to help create easy access to those who are interested in gardening and want to know more about what is best to garden right here in Santa Barbara. </p>
+<p>We as the garden club partner with the Dining Commons of Westmont College and help grow some of the vegetables you find in your meals. One way that you as a student or faculty member can be more involved with what vegetables are present in your meals is to fill out the form we have in the top right corner.</p>
+<br>
+            </div>
+</div>
+<div style="text-align: center;">
+    <a href="{% url 'references' %}" style="color: #343634; display: inline-block;font-weight: bold; font-size: 20px">References Used</a>
+</div>
 
-<li><a href="{% url 'references' %}">References Used</a></li>
 </body>
 </html>
