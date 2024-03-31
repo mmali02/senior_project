@@ -10,3 +10,5 @@ def index(request):
 def garden(request):
     return render(request, "newApp/garden.html", {})
 
+def references(request):
+    return render(request, "newApp/references.html", {})

@@ -65,10 +65,12 @@
         </div>
     </nav>
 
-<img src="{% static 'westmont garden 2024.jpg' %}" alt="Image">
-<img src="images/trying.jpg">
+{% load static %}
+<img src="{% static 'westmont garden 2024.jpg' %}">
 
 <!--<img src="djangoProject/newApp/templates/images/westmont garden 2024.jpg">-->
 
+
+<li><a href="{% url 'references' %}">References Used</a></li>
 </body>
 </html>
