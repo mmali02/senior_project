@@ -13,18 +13,44 @@
         padding: 0;
         }
 
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+}
+
+        .bottom-left {
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+        }
+
         body {
             background-color: #bde0c0;
             margin: 0; /* Remove default body margin */
         }
+        .card {
+            margin-bottom: 20px;
+            background-color: #f1f1f1; /* White background for cards */
+            border: 1px solid #dee2e6; /* Light Grey border for cards */
+            border-radius: 8px; /* Rounded corners for cards */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for cards */
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-body p {
+            margin-bottom: 15px; /* Add margin bottom to paragraphs */
+        }
         .navbar{
-            background-color: #3d8265; font-family: Georgia;
+            background-color: #3d8265;
+            font-family: Georgia;
             /*padding-right: 15px;*/
             /*padding-left: 15px;*/
             /*width: 100%;*/
             /*height: auto;*/
-
-            font-family: Georgia;
             width: 100%; /* Cover the entire width of the viewport */
         }
         .navdiv{
@@ -73,19 +99,29 @@
         </div>
     </nav>
 
-</head>
 
-<img src="westmont_garden_2024.jpg">
+
+
 <br>
-<!--<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2t5emF5aDc2MnY5YjFoMWd4ZW1qbTNyeGp6anZ4NGxhZGU1eGlwNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYAs5E2oIDCq9So/giphy.gif">-->
-<div style="overflow: auto;">
-<img src="https://www.westmont.edu/sites/default/files/styles/scale_900/public/Janell%20Balmaceda%20Standing.jpg?itok=K1nl_TPl" style="float: right; margin-left: 10px; margin-bottom: 5px"; width="600px"; height="400px">
+<div style="text-align: center;">
+   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2t5emF5aDc2MnY5YjFoMWd4ZW1qbTNyeGp6anZ4NGxhZGU1eGlwNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYAs5E2oIDCq9So/giphy.gif">
+</div>
+<br>
 
+
+<div style="overflow: auto;">
+    <div class="container" style="position: relative;">
+        <img src="https://www.westmont.edu/sites/default/files/styles/scale_900/public/Janell%20Balmaceda%20Standing.jpg?itok=K1nl_TPl" style="float: right; margin-left: 10px; margin-bottom: 5px; padding: 15px"; width="600px"; height="400px"; >
+        <div class="bottom-left" style="color: white" >Janell Balmaceda</div>
+        <div class="bottom-left" style="bottom: 0; color: white">Westmont Garden Manager</div>
+    </div>
+    <div class="card">
+            <div class="card-body">
     <p>
         <b>Composting:</b> We compost veggie scraps from the Dining Commons, and food waste from the 4 student kitchens in the GLC. The nutrient-rich compost is then used for growing more vegetables, and fertilizing our fruit trees.
         <br>
         <br>
-        <b>Seed->Harvest->Table:</b> Kale, tomatoes, lettuce, onions, beets, and more! We love growing food for the dining commons.
+        <b>Seed→Harvest→Table:</b> Kale, tomatoes, lettuce, onions, beets, and more! We love growing food for the dining commons.
         <br>
         <br>
         <b>Apiary:</b> The SB Beekeepers Association manages two bee drawers in our garden. The bees help increase the health of our garden by pollinating our vegetables, trees and wildflowers!
@@ -94,11 +130,15 @@
         <b>Biodiversity:</b> the garden provides a great place to marvel at God's creation, and praise Him for His glorious works! It's a great place to go birdwatching. The ecology class did some surveying in the garden, and one group found 15 different species of butterflies in the garden!
 
 
-            <li><a href="https://docs.google.com/document/d/18z3Z-Q7TOxQOE86_QP3AvH40HWk4v6vL5D5QOzPIQtA/edit" style="color: black; font-weight: bold; font-size: 18px; padding: 30px">Birds of the Westmont Garden</a></li>
+            <li><a href="https://docs.google.com/document/d/18z3Z-Q7TOxQOE86_QP3AvH40HWk4v6vL5D5QOzPIQtA/edit" style="color: #3565e0; font-weight: bold; font-size: 18px; padding-left: 30px">Birds of the Westmont Garden</a></li>
             <br>
             <br>
-            <li><a href="https://www.westmontbiodiversity.com/" style="color: black; font-weight: bold; font-size: 18px; padding: 30px"> Westmont Biodiversity</a> </li>
+            <li><a href="https://www.westmontbiodiversity.com/" style="color: #3565e0; font-weight: bold; font-size: 18px; padding-left: 30px"> Westmont Biodiversity</a> </li>
+            <br>
+        <br>
     </p>
+                </div>
+        </div>
 </div>
 
 
