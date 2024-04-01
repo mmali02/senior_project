@@ -48,6 +48,14 @@
             justify-content: space-between;
             padding: 10px; /* Add padding to adjust the content */
         }
+        img {
+            padding: 0;
+            display: block;
+            margin: 0 auto;
+            max-height: 80%;
+            max-width: 100%;
+        }
+
         .logo a{
             font-size: 35px;
             font-weight: 600;
@@ -96,18 +104,15 @@
     </nav>
 
 
-<img src="{% static 'admin/img/trying.jpg' %}">
-
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWt4bXYxbTZhcWZtY21ia2gzZWdyZ25ieHV6NzNuZ2k1d3RhaHo0eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYAs5E2oIDCq9So/giphy.gif">
 <div class="card">
             <div class="card-body">
-<p> Welcome to Flora and Friends! This page is designed to help create easy access to those who are interested in gardening and want to know more about what is best to garden right here in Santa Barbara. </p>
-<p>We as the garden club partner with the Dining Commons of Westmont College and help grow some of the vegetables you find in your meals. One way that you as a student or faculty member can be more involved with what vegetables are present in your meals is to fill out the form we have in the top right corner.</p>
-<br>
+<p> Welcome to Flora and Friends! This page is designed to help create easy access to those who are interested in gardening and want to know more about what is best to garden right here in Santa Barbara. We as the garden club partner with the Dining Commons of Westmont College and help grow some of the vegetables you find in your meals. One way that you as a student or faculty member can be more involved with what vegetables are present in your meals is to fill out the form we have in the top right corner.</p>
             </div>
 </div>
 <div style="text-align: center;">
-    <a href="{% url 'references' %}" style="color: #343634; display: inline-block;font-weight: bold; font-size: 20px">References Used</a>
+    <a href="{% url 'references' %}" style="color: black; display: inline-block;font-weight: bold; font-size: 20px">References Used</a>
 </div>
-
+<br>
 </body>
 </html>
