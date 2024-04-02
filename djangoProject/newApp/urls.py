@@ -26,5 +26,6 @@ urlpatterns = [
     path('garden/', views.garden, name='garden'),
     path('references/', views.references, name='references'),
     path('references/<path:url>/', views.external_reference, name='external_reference'),
+    path('plant_info_base/', views.plant_info_base, name='plant_info_base'),
     # Other URL patterns
 ]
