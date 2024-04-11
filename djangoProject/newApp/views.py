@@ -73,12 +73,12 @@ def search_fruit(
     sunfield: Optional[str] = None,
 ) -> List[Fruit]:
 
-    if sortfield == "entered_at":
-        fruit = Fruit.objects.all().order_by(
-            sortorder + sortfield
-        ) 
-    else:
-        fruit = Fruit.objects.all()
+    # if soilfield == "entered_at":
+    #     fruit = Fruit.objects.all().order_by(
+    #         sortorder + sortfield
+    #     )
+    # else:
+    fruit = Fruit.objects.all()
 
     results = fruit.filter(soilfield=Fruit.soil).filter(sunfield=Fruit.sun)
 
