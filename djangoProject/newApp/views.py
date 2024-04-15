@@ -29,8 +29,11 @@ def search(request):
     if search_form.is_valid():
         data = search_form.cleaned_data
         query = data["query"]
-        soilfield = data["soilfield"]
+        seasonfield = data["seasonfield"]
         sunfield = data["sunfield"]
+        waterfield = data["waterfield"]
+        soilfield = data["soilfield"]
+
 
         plants = search_plants( query, soilfield=soilfield , sunfield=sunfield)
         fruits = search_fruits( query, soilfield=soilfield , sunfield=sunfield)
@@ -47,13 +50,15 @@ def search(request):
             },
         )
     else:
-        return HttpResponseBadRequest()
+        return "There are no plants with those specific requirements in this database"
 
 def search_plants(
     query: str,
-    soilfield: Optional[str] = None,
+    seasonfield: Optional[str] = None,
     sunfield: Optional[str] = None,
-) -> List[Plant]:
+    waterfield = Optional[str] = None,
+    soilfield: Optional[str] = None,
+        ) -> List[Plant]:
 
     if sortfield == "entered_at":
         plants = Plant.objects.all().order_by(
@@ -69,8 +74,11 @@ def search_plants(
 
 def search_fruits(
     query: str,
-    soilfield: Optional[str] = None,
+    seasonfield: Optional[str] = None,
     sunfield: Optional[str] = None,
+    waterfield = Optional[str] = None,
+    soilfield: Optional[str] = None,
+
 ) -> List[Fruit]:
 
     # if soilfield == "entered_at":
