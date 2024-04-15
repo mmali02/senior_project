@@ -27,3 +27,5 @@ My proposal is to create a cohesive website that contains information on vegetab
 ## Resources used:
 
 “How to Create Python Django Website in Pycharm.” _YouTube_, Uploaded by Techlearners By Neeraj Saxena, 5 August 2022, www.youtube.com/watch?v=4XYsODaQ6Ok. 
+
+John Rodkey
