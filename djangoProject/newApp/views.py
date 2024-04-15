@@ -67,7 +67,7 @@ def search_plants(
     return results
 
 
-def search_fruit(
+def search_fruits(
     query: str,
     soilfield: Optional[str] = None,
     sunfield: Optional[str] = None,
