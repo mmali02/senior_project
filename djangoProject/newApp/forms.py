@@ -12,6 +12,14 @@ class SearchPlantForm(forms.Form):
             ("Loam soil", "Loam soil"),
             ("Sandy soil", "Sandy soil"),
         ],
+    )
+        sunfield = ChoiceField(
+            choices=[
+                ("", "Soil Type"),
+                ("Clay soil", "Clay soil"),
+                ("Loam soil", "Loam soil"),
+                ("Sandy soil", "Sandy soil"),
+            ],
         label="",
         required=False,
     )
