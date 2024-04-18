@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Vegetable, Fruit, Plant
+from .forms import SearchPlantForm
 
 # Create your views here.
 # Defining a view for inside index.html, (turning a request into a response)
@@ -35,9 +36,9 @@ def search(request):
         soilfield = data["soilfield"]
 
 
-        plants = search_plants( query, soilfield=soilfield , sunfield=sunfield)
-        fruits = search_fruits( query, soilfield=soilfield , sunfield=sunfield)
-        vegetables = search_vegetables( query, soilfield=soilfield , sunfield=sunfield)
+        plants = search_plants( query, seasonfield=seasonfield,sunfield=sunfield, waterfield=waterfield, soilfield=soilfield )
+        fruits = search_fruits( query, seasonfield=seasonfield,sunfield=sunfield, waterfield=waterfield, soilfield=soilfield )
+        vegetables = search_vegetables( query, seasonfield=seasonfield,sunfield=sunfield, waterfield=waterfield, soilfield=soilfield )
 
         return render(
             request,
@@ -63,13 +64,19 @@ def search_plants(
     if sortfield == "entered_at":
         plants = Plant.objects.all().order_by(
             sortorder + sortfield
-        ) 
+        )
+        fruits = Fruit.objects.all().order_by(
+            sort
+        )
     else:
         plants = Plant.objects.all()
+        fruits = Fruit.objects.all()
+        vegetables = Vegetable.objects.all()
 
-    results = plants.filter(soilfield=Plant.soil).filter(sunfield=Plant.sun)
-
-    return results
+    results = plants.filter(seasonfield=Plant.season).filter(sunfield=Plant.sun).filter(waterfield=Plant.water).filter(soilfield=Plant.soil)
+    results1 = fruits.filter(seasonfield=Fruit.season).filter(sunfield=Fruit.sun).filter(waterfield=Fruit.water).filter(soilfield=Fruit.soil)
+    results2 = vegetables.filter(seasonfield=Vegetable.season).filter(sunfield=Vegetable.sun).filter(waterfield=Vegetable.water).filter(soilfield=Vegetable.soil)
+        return results, results1, results2
 
 
 def search_fruits(
