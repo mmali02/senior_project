@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Plant information</title>
@@ -117,6 +118,40 @@
     </nav>
 <div class="containter">
     <h1>Plant Information</h1>
+
+    <!-- Search Form -->
+    <form method="GET" action="{% url 'search' %}">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Search...">
+        <label for="seasonfield">Time of Year:</label>
+        <select name="seasonfield">
+            <option value="December-February">December-February</option>
+            <option value="March-May">March-May</option>
+            <option value="June-August">June-August</option>
+            <option value="September-November">September-November</option>
+        </select>
+        <label for="sunfield">Sunlight:</label>
+        <select name ="sunfield">
+            <option value="Full sun">Full sun</option>
+            <option value="Partial sun/shade">Partial sun/shade</option>
+            <option value="Full shade">Full shade</option>
+        </select>
+        <label for="waterfield">Water:</label>
+        <select name ="waterfield">
+            <option value="Very low (every other week)">Very low (every other week)</option>
+            <option value="Low (once per week)">Low (once per week)</option>
+            <option value="Moderate (2 to 3 times a week)">Moderate (2 to 3 times a week)</option>
+            <option value="High (3 to 4 times a week)">High (3 to 4 times a week)</option>
+        </select>
+       <label for="soilfield">Soil Type:</label>
+        <select name ="soilfield">
+            <option value="Clay soil">Clay soil</option>
+            <option value="Loamy soil">Loamy soil</option>
+            <option value="Sandy soil">Sandy soil</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
 <br>
     {% for fruit in fruit_list %}
     <div class="card">
