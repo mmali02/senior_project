@@ -4,7 +4,8 @@ from django.forms import ChoiceField
 from .models import Plant, Fruit, Vegetable
 
 class SearchPlantForm(forms.Form):
-    query = forms.CharField(required=False)
+    query = forms.CharField(label="Search", required=False)
+    # query = forms.CharField(required=False)
     seasonfield = ChoiceField(
         choices=[
             ("", "Time of Year"),
@@ -15,6 +16,7 @@ class SearchPlantForm(forms.Form):
         ],
         label="",
         required=False,
+        initial=''
     )
     sunfield = ChoiceField(
         choices=[
@@ -25,6 +27,7 @@ class SearchPlantForm(forms.Form):
         ],
         label="",
         required=False,
+        initial=''
     )
     waterfield = ChoiceField(
         choices=[
@@ -36,6 +39,7 @@ class SearchPlantForm(forms.Form):
         ],
         label="",
         required=False,
+        initial=''
     )
     soilfield = ChoiceField(
         choices=[
@@ -46,5 +50,6 @@ class SearchPlantForm(forms.Form):
         ],
         label="",
         required=False,
+        initial=''
     )
     query = forms.CharField(label="Search", required=False)

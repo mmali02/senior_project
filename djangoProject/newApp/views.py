@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from typing import Optional, List
 from .models import Vegetable, Fruit, Plant
 from .forms import SearchPlantForm
@@ -58,11 +59,12 @@ def plant_info_base(request):
 
 def search(request):
     search_form = SearchPlantForm(request.GET)
+
     if search_form.is_valid():
         data = search_form.cleaned_data
         query = data["query"]
-        seasonfield = data["seasonfield"]
-        sunfield = data["sun"]
+        season = data["seasonfield"]
+        sun = data["sunfield"]
         water = data["waterfield"]
         soil = data["soilfield"]
 
@@ -70,7 +72,7 @@ def search(request):
 
         return render(
             request,
-            "garden/index.html",
+            "newApp/plant_info_base.html",
             {
                 "query": query,
                 "plants": plants,
@@ -79,7 +81,11 @@ def search(request):
             },
         )
     else:
-        return render(request, "error_page.html", {"error": "Invalid form data"})
+        # If the form is not valid, print an error message
+        print("Form is not valid:", search_form.errors)
+        return HttpResponse("Invalid form data")
+        # return "There are no plants with those specific requirements in this database"
+        # return render(request, "error_page.html", {"error": "Invalid form data"})
 
 
 def search_plants(
@@ -94,25 +100,30 @@ def search_plants(
     fruits = Fruit.objects.all()
     vegetables = Vegetable.objects.all()
 
-    if seasonfield:
-        plants = plants.filter(seasonfield=seasonfield)
-        fruits = fruits.filter(seasonfield=seasonfield)
-        vegetables = vegetables.filter(seasonfield=seasonfield)
+    if query:
+        plants = plants.filter(name__icontains=query)
+        fruits = fruits.filter(name__icontains=query)
+        vegetables = vegetables.filter(name__icontains=query)
 
-    if sunfield:
-        plants = plants.filter(sunfield=sunfield)
-        fruits = fruits.filter(sunfield=sunfield)
-        vegetables = vegetables.filter(sunfield=sunfield)
+    if seasonfield and seasonfield != 'All':
+        plants = plants.filter(season=seasonfield)
+        fruits = fruits.filter(season=seasonfield)
+        vegetables = vegetables.filter(season=seasonfield)
 
-    if waterfield:
-        plants = plants.filter(waterfield=waterfield)
-        fruits = fruits.filter(waterfield=waterfield)
-        vegetables = vegetables.filter(waterfield=waterfield)
+    if sunfield and sunfield != 'All':
+        plants = plants.filter(sun=sunfield)
+        fruits = fruits.filter(sun=sunfield)
+        vegetables = vegetables.filter(sun=sunfield)
 
-    if soilfield:
-        plants = plants.filter(soilfield=soilfield)
-        fruits = fruits.filter(soilfield=soilfield)
-        vegetables = vegetables.filter(soilfield=soilfield)
+    if waterfield and waterfield != 'All':
+        plants = plants.filter(water=waterfield)
+        fruits = fruits.filter(water=waterfield)
+        vegetables = vegetables.filter(water=waterfield)
+
+    if soilfield and soilfield != 'All':
+        plants = plants.filter(soil=soilfield)
+        fruits = fruits.filter(soil=soilfield)
+        vegetables = vegetables.filter(soil=soilfield)
 
     return plants, fruits, vegetables
 
