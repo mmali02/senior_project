@@ -89,6 +89,51 @@ def plant_info_base(request):
 #         # return render(request, "error_page.html", {"error": "Invalid form data"})
 
 
+# def search(request):
+#     query_param = request.GET.get('query')
+#     seasonfield_param = request.GET.get('seasonfield')
+#     sunfield_param = request.GET.get('sunfield')
+#     waterfield_param = request.GET.get('waterfield')
+#     soilfield_param = request.GET.get('soilfield')
+#
+#     # Print the parameters to inspect them
+#     print("Query:", query_param)
+#     print("Seasonfield:", seasonfield_param)
+#     print("Sunfield:", sunfield_param)
+#     print("Waterfield:", waterfield_param)
+#     print("Soilfield:", soilfield_param)
+#
+#     if request.method == 'GET':
+#         search_form = SearchPlantForm(request.GET)
+#         if search_form.is_valid():
+#             data = search_form.cleaned_data
+#             query = data.get("query", "")
+#             season = data.get("seasonfield", "")
+#             sun = data.get("sunfield", "")
+#             water = data.get("waterfield", "")
+#             soil = data.get("soilfield", "")
+#
+#             plants, fruits, vegetables = search_plants(query, season, sun, water, soil)
+#
+#             return render(
+#                 request,
+#                 "newApp/plant_info_base.html",
+#                 {
+#                     "query": query,
+#                     "plant_list": plants,
+#                     "fruit_list": fruits,
+#                     "veg_list": vegetables
+#                 },
+#             )
+#         else:
+#             # If the form is not valid, render the search form with errors
+#             return render(request, 'search.html', {'search_form': search_form, 'error_message': 'Invalid form data'})
+#     else:
+#         # Handle other HTTP methods if needed
+#         return HttpResponse(status=405)  # Method Not Allowed
+
+
+
 def search(request):
     query_param = request.GET.get('query')
     seasonfield_param = request.GET.get('seasonfield')
@@ -115,14 +160,19 @@ def search(request):
 
             plants, fruits, vegetables = search_plants(query, season, sun, water, soil)
 
+            # Print the length of each queryset for debugging
+            print("Number of plants:", len(plants))
+            print("Number of fruits:", len(fruits))
+            print("Number of vegetables:", len(vegetables))
+
             return render(
                 request,
                 "newApp/plant_info_base.html",
                 {
                     "query": query,
-                    "plants": plants,
-                    "fruits": fruits,
-                    "vegetables": vegetables
+                    "plant_list": plants,
+                    "fruit_list": fruits,
+                    "veg_list": vegetables
                 },
             )
         else:
@@ -131,6 +181,8 @@ def search(request):
     else:
         # Handle other HTTP methods if needed
         return HttpResponse(status=405)  # Method Not Allowed
+
+
 
 
 def search_plants(

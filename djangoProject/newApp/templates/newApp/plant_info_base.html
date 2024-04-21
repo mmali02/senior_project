@@ -120,7 +120,7 @@
     <h1>Plant Information</h1>
 
     <!-- Search Form -->
-    <form method="GET" action="{% url 'search' %}">
+    <form action="{% url 'search' %}" method="get">
         {% csrf_token %}
         <input type="text" name="query" placeholder="Search...">
         <label for="seasonfield">Time of Year:</label>
