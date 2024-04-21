@@ -57,35 +57,80 @@ def plant_info_base(request):
 #         return "There are no plants with those specific requirements in this database"
 
 
+# current search:
+# def search(request):
+#     search_form = SearchPlantForm(request.GET)
+#
+#     if search_form.is_valid():
+#         data = search_form.cleaned_data
+#         query = data["query"]
+#         season = data["seasonfield"]
+#         sun = data["sunfield"]
+#         water = data["waterfield"]
+#         soil = data["soilfield"]
+#
+#         plants, fruits, vegetables = search_plants(query, season, sun, water, soil)
+#
+#         return render(
+#             request,
+#             "newApp/plant_info_base.html",
+#             {
+#                 "query": query,
+#                 "plants": plants,
+#                 "fruits": fruits,
+#                 "vegetables": vegetables
+#             },
+#         )
+#     else:
+#         # If the form is not valid, print an error message
+#         print("Form is not valid:", search_form.errors)
+#         return HttpResponse("Invalid form data")
+#         # return "There are no plants with those specific requirements in this database"
+#         # return render(request, "error_page.html", {"error": "Invalid form data"})
+
+
 def search(request):
-    search_form = SearchPlantForm(request.GET)
+    query_param = request.GET.get('query')
+    seasonfield_param = request.GET.get('seasonfield')
+    sunfield_param = request.GET.get('sunfield')
+    waterfield_param = request.GET.get('waterfield')
+    soilfield_param = request.GET.get('soilfield')
 
-    if search_form.is_valid():
-        data = search_form.cleaned_data
-        query = data["query"]
-        season = data["seasonfield"]
-        sun = data["sunfield"]
-        water = data["waterfield"]
-        soil = data["soilfield"]
+    # Print the parameters to inspect them
+    print("Query:", query_param)
+    print("Seasonfield:", seasonfield_param)
+    print("Sunfield:", sunfield_param)
+    print("Waterfield:", waterfield_param)
+    print("Soilfield:", soilfield_param)
 
-        plants, fruits, vegetables = search_plants(query, season, sun, water, soil)
+    if request.method == 'GET':
+        search_form = SearchPlantForm(request.GET)
+        if search_form.is_valid():
+            data = search_form.cleaned_data
+            query = data.get("query", "")
+            season = data.get("seasonfield", "")
+            sun = data.get("sunfield", "")
+            water = data.get("waterfield", "")
+            soil = data.get("soilfield", "")
 
-        return render(
-            request,
-            "newApp/plant_info_base.html",
-            {
-                "query": query,
-                "plants": plants,
-                "fruits": fruits,
-                "vegetables": vegetables
-            },
-        )
+            plants, fruits, vegetables = search_plants(query, season, sun, water, soil)
+
+            return render(
+                request,
+                "newApp/plant_info_base.html",
+                {
+                    "query": query,
+                    "plants": plants,
+                    "fruits": fruits,
+                    "vegetables": vegetables
+                },
+            )
+        else:
+            # If the form is not valid, render the search form with errors
+            return render(request, 'search.html', {'search_form': search_form, 'error_message': 'Invalid form data'})
     else:
-        # If the form is not valid, print an error message
-        print("Form is not valid:", search_form.errors)
-        return HttpResponse("Invalid form data")
-        # return "There are no plants with those specific requirements in this database"
-        # return render(request, "error_page.html", {"error": "Invalid form data"})
+        # Handle other HTTP methods if needed
+        return HttpResponse(status=405)  # Method Not Allowed
 
 
 def search_plants(
