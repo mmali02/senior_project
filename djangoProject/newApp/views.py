@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from typing import Optional, List
 from .models import Vegetable, Fruit, Plant
+from .forms import SearchPlantForm
+
 
 # Create your views here.
 # Defining a view for inside index.html, (turning a request into a response)
@@ -22,3 +26,97 @@ def plant_info_base(request):
     veg_list = Vegetable.objects.all()
     plant_list = Plant.objects.all()
     return render(request, 'newApp/plant_info_base.html', {'fruit_list': fruit_list, 'veg_list': veg_list, 'plant_list': plant_list})
+
+
+
+def search(request):
+    query_param = request.GET.get('query')
+    seasonfield_param = request.GET.get('seasonfield')
+    sunfield_param = request.GET.get('sunfield')
+    waterfield_param = request.GET.get('waterfield')
+    soilfield_param = request.GET.get('soilfield')
+
+    # Print the parameters to inspect them
+    print("Query:", query_param)
+    print("Seasonfield:", seasonfield_param)
+    print("Sunfield:", sunfield_param)
+    print("Waterfield:", waterfield_param)
+    print("Soilfield:", soilfield_param)
+
+    if request.method == 'GET':
+        search_form = SearchPlantForm(request.GET)
+        if search_form.is_valid():
+            data = search_form.cleaned_data
+            query = data.get("query", "")
+            season = data.get("seasonfield", "")
+            sun = data.get("sunfield", "")
+            water = data.get("waterfield", "")
+            soil = data.get("soilfield", "")
+
+            plants, fruits, vegetables = search_plants(query, season, sun, water, soil)
+
+            # Print the length of each queryset for debugging
+            print("Number of plants:", len(plants))
+            print("Number of fruits:", len(fruits))
+            print("Number of vegetables:", len(vegetables))
+
+            return render(
+                request,
+                "newApp/plant_info_base.html",
+                {
+                    "query": query,
+                    "plant_list": plants,
+                    "fruit_list": fruits,
+                    "veg_list": vegetables
+                },
+            )
+        else:
+            # If the form is not valid, render the search form with errors
+            return render(request, 'search.html', {'search_form': search_form, 'error_message': 'Invalid form data'})
+    else:
+        # Handle other HTTP methods if needed
+        return HttpResponse(status=405)  # Method Not Allowed
+
+
+
+
+def search_plants(
+    query: str,
+    seasonfield: Optional[str] = None,
+    sunfield: Optional[str] = None,
+    waterfield: Optional[str] = None,
+    soilfield: Optional[str] = None,
+) -> (List[Plant], List[Fruit], List[Vegetable]):
+
+    plants = Plant.objects.all()
+    fruits = Fruit.objects.all()
+    vegetables = Vegetable.objects.all()
+
+    if query:
+        plants = plants.filter(name__icontains=query)
+        fruits = fruits.filter(name__icontains=query)
+        vegetables = vegetables.filter(name__icontains=query)
+
+    if seasonfield and seasonfield != 'Any':
+        plants = plants.filter(season=seasonfield)
+        fruits = fruits.filter(season=seasonfield)
+        vegetables = vegetables.filter(season=seasonfield)
+
+    if sunfield and sunfield != 'Any':
+        plants = plants.filter(sun=sunfield)
+        fruits = fruits.filter(sun=sunfield)
+        vegetables = vegetables.filter(sun=sunfield)
+
+    if waterfield and waterfield != 'Any':
+        plants = plants.filter(water=waterfield)
+        fruits = fruits.filter(water=waterfield)
+        vegetables = vegetables.filter(water=waterfield)
+
+    if soilfield and soilfield != 'Any':
+        plants = plants.filter(soil=soilfield)
+        fruits = fruits.filter(soil=soilfield)
+        vegetables = vegetables.filter(soil=soilfield)
+
+    return plants, fruits, vegetables
+
+
