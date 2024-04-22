@@ -95,6 +95,51 @@
             padding-top: 10px;
         }
 
+        .search-form {
+        border-radius: 50px;
+        padding: 20px; /* Add padding to the form */
+        font-size: 16px; /* Increase font size */
+        font-family: Georgia;
+        display: flex; /* Use flexbox layout */
+        flex-wrap: wrap; /* Allow wrapping to the next line */
+        align-items: baseline;
+    }
+
+    /* CSS styles for the form elements */
+    .search-form input[type="text"],
+    .search-form select {
+        border-radius: 15px;
+        padding: 10px; /* Add padding to input and select elements */
+        font-size: 16px; /* Increase font size */
+        font-family: Georgia;
+        flex: 1; /* Expand elements to fill available space */
+        margin-right: 10px; /* Add space between elements */
+    }
+
+    .search-form label {
+        border-radius: 15px;
+        display: block; /* Display labels as block elements */
+        margin-bottom: 5px; /* Add space below labels */
+    }
+
+    .search-form button {
+        border-radius: 15px;
+        padding: 10px 20px; /* Add padding to the button */
+        font-size: 16px; /* Increase font size */
+        font-family: Georgia;
+        background-color: #007bff; /* Example background color */
+        color: #fff; /* Example text color */
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-top: -30px;
+    }
+
+    /* Limit width of select elements */
+    .search-form select {
+        width: 25%; /* Adjust width as needed */
+    }
+
     </style>
 
 </head>
@@ -117,39 +162,42 @@
         </div>
     </nav>
 <div class="containter">
-    <h1>Plant Information</h1>
 
     <!-- Search Form -->
-    <form action="{% url 'search' %}" method="get">
+    <form action="{% url 'search' %}" method="get" class="search-form">
         {% csrf_token %}
         <input type="text" name="query" placeholder="Search...">
-        <label for="seasonfield">Time of Year:</label>
+
+
         <select name="seasonfield">
-    <option value="">Any</option> <!-- Blank option -->
-    <option value="December-February" {% if request.GET.seasonfield == "December-February" %} selected {% endif %}>December-February</option>
-    <option value="March-May" {% if request.GET.seasonfield == "March-May" %} selected {% endif %}>March-May</option>
-    <option value="June-August" {% if request.GET.seasonfield == "June-August" %} selected {% endif %}>June-August</option>
-    <option value="September-November" {% if request.GET.seasonfield == "September-November" %} selected {% endif %}>September-November</option>
+            <option value="" disabled selected hidden>Time of Year</option> <!-- Label option -->
+            <option value="">Any</option> <!-- Blank option -->
+            <option value="December-February" {% if request.GET.seasonfield == "December-February" %} selected {% endif %}>December-February</option>
+            <option value="March-May" {% if request.GET.seasonfield == "March-May" %} selected {% endif %}>March-May</option>
+            <option value="June-August" {% if request.GET.seasonfield == "June-August" %} selected {% endif %}>June-August</option>
+            <option value="September-November" {% if request.GET.seasonfield == "September-November" %} selected {% endif %}>September-November</option>
 </select>
 
 
-        <label for="sunfield">Sunlight:</label>
         <select name ="sunfield">
+            <option value="" disabled selected hidden>Sunlight</option> <!-- Label option -->
             <option value="">Any</option> <!-- Blank option -->
             <option value="Full sun" {% if request.GET.sunfield == "Full sun" %} selected {% endif %}>Full sun</option>
             <option value="Partial sun/shade" {% if request.GET.sunfield == "Partial sun/shade" %} selected {% endif %}>Partial sun/shade</option>
         </select>
-        <label for="waterfield">Water:</label>
+
+
         <select name ="waterfield">
+            <option value="" disabled selected hidden>Water</option> <!-- Label option -->
             <option value="">Any</option> <!-- Blank option -->
             <option value="Low (once per week)" {% if request.GET.waterfield == "Low (once per week)" %} selected {% endif %}>Low (once per week)</option>
             <option value="Moderate (2 to 3 times a week)" {% if request.GET.waterfield == "Moderate (2 to 3 times a week)" %} selected {% endif %}>Moderate (2 to 3 times a week)</option>
             <option value="High (3 to 4 times a week)" {% if request.GET.waterfield == "High (3 to 4 times a week)" %} selected {% endif %}>High (3 to 4 times a week)</option>
-
-
         </select>
-       <label for="soilfield">Soil Type:</label>
+
+
         <select name ="soilfield">
+            <option value="" disabled selected hidden>Soil Type</option> <!-- Label option -->
             <option value="">Any</option> <!-- Blank option -->
             <option value="Clay soil" {% if request.GET.soilfield == "Clay soil" %} selected {% endif %}>Clay soil</option>
             <option value="Loam soil" {% if request.GET.soilfield == "Loam soil" %} selected {% endif %}>Loam soil</option>
