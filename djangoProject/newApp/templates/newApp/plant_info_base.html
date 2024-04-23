@@ -78,6 +78,12 @@
             margin-right: 25px
         }
 
+         .c{
+             font-size: 22px;
+             padding-left: 20px;
+             padding-right: 20px;
+         }
+
          p {
              font-size: 18px;
              padding-left: 20px;
@@ -209,6 +215,7 @@
     </form>
 
 <br>
+    {% if fruit_list %}
     {% for fruit in fruit_list %}
     <div class="card">
             <div class="card-body">
@@ -226,6 +233,7 @@
         </div>
     {% endfor %}
 
+    {% elif veg_list %}
     {% for veg in veg_list %}
      <div class="card">
             <div class="card-body">
@@ -243,6 +251,7 @@
          </div>
     {% endfor %}
 
+    {% elif plant_list %}
     {% for plant in plant_list %}
      <div class="card">
             <div class="card-body">
@@ -260,6 +269,10 @@
          </div>
     {% endfor %}
 
+    {% else %}
+    <div class="c">We're sorry, there are no plants matching your selected filters.</div>
+    <p></p>
+    {% endif %}
 </div>
 
 </body>

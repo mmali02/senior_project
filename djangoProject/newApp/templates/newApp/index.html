@@ -14,32 +14,52 @@
         }
 
         body {
-            background-color: #bde0c0;
-            margin: 0; /* Remove default body margin */
+            background-image: url('https://www.westmont.edu/sites/default/files/styles/16_9_1280w/public/10_13_23.jpg?itok=uFtRdGsS');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
+
+        /*body {*/
+        /*    !*background-image: url("https://mdbootstrap.com/img/new/fluid/city/018.jpg");*!*/
+        /*    background-image: url("https://www.westmont.edu/sites/default/files/styles/16_9_1280w/public/10_13_23.jpg?itok=uFtRdGsS");*/
+        /*    background-color: #bde0c0;*/
+        /*    margin: 0; !* Remove default body margin *!*/
+        /*}*/
          .card {
-            margin-bottom: 20px;
+            width: 50%;
+            max-width: 605px;
+            margin: 0 auto;
+            padding: 20px;
             background-color: #f1f1f1; /* White background for cards */
             border: 1px solid #dee2e6; /* Light Grey border for cards */
             border-radius: 8px; /* Rounded corners for cards */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for cards */
+            opacity: 0.9;
         }
 
+
         .card-body {
-            padding: 15px;
+            padding: 10px;
         }
 
         .card-body p {
-            margin-bottom: 15px; /* Add margin bottom to paragraphs */
+            margin-bottom: 10px; /* Add margin bottom to paragraphs */
         }
+
+        .container {
+              height: 100vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
 
 
         .navbar{
             background-color: #3d8265; font-family: Georgia;
-            /*padding-right: 15px;*/
-            /*padding-left: 15px;*/
-            /*width: 100%;*/
-            /*height: auto;*/
             width: 100%; /* Cover the entire width of the viewport */
         }
         .navdiv{
@@ -80,7 +100,7 @@
         }
 
          p {
-             font-size: 18px;
+             font-size: 20px;
              padding-left: 20px;
              padding-right: 20px;
              padding-bottom: 10px;
@@ -104,16 +124,24 @@
     </nav>
 
 
-<img src="https://i.imgur.com/qmqdWVk.jpeg", width="600px", height="400px">
+<!--<img src="https://i.imgur.com/qmqdWVk.jpeg", width="600px", height="400px">-->
+
+<div class="container">
 
 <div class="card">
             <div class="card-body">
-<p> Welcome to Flora and Friends! This page is designed to help create easy access to those who are interested in gardening and want to know more about what is best to garden right here in Santa Barbara. We as the garden club partner with the Dining Commons of Westmont College and help grow some of the vegetables you find in your meals. One way that you as a student or faculty member can be more involved with what vegetables are present in your meals is to fill out the form we have in the top right corner.</p>
+                <p> <b> Welcome to Flora and Friends! </b> This page is designed to help create easy access to those who are interested in gardening and want to know more about what is best to garden right here in Santa Barbara. We as the garden club partner with the Dining Commons of Westmont College and help grow some of the vegetables you find in your meals. One way that you as a student or faculty member can be more involved with what vegetables are present in your meals is to fill out the form we have in the top right corner.</p>
+
+                <div style="text-align: center;">
+    <a href="{% url 'references' %}" style="color: #007bff; display: inline-block;font-weight: bold; font-size: 20px"> <u style="text-decoration: underline;">References Used</u> </a>
+</div>
+
             </div>
 </div>
-<div style="text-align: center;">
-    <a href="{% url 'references' %}" style="color: black; display: inline-block;font-weight: bold; font-size: 20px">References Used</a>
-</div>
+    </div>
+<!--<div style="text-align: center;">-->
+<!--    <a href="{% url 'references' %}" style="color: black; display: inline-block;font-weight: bold; font-size: 20px">References Used</a>-->
+<!--</div>-->
 <br>
 </body>
 </html>

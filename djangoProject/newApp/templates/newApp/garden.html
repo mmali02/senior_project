@@ -83,86 +83,15 @@
              padding-top: 10px;
          }
 
+        .c {
+            text-align: right;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
         * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
 
 @keyframes fade {
   from {opacity: .4}
@@ -174,8 +103,72 @@ img {vertical-align: middle;}
   .prev, .next,.text {font-size: 11px}
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.carousel [role='list'] {
+  /* These are more appropriate in a CSS reset */
+  padding: 0;
+  list-style: none;
+}
+.carousel-media {
+  /* Arrange media horizontally */
+  display: flex;
+}
+
+.carousel-scroll-container {
+  /* Enable horizontal scrolling */
+  overflow-x: auto;
+}
+
+.carousel-item {
+  /* Limit the height of each media item */
+  height: 300px;
+  /* Prevent media from shrinking */
+  flex-shrink: 0;
+
+  margin-right: 10px;
+}
+/* Target direct descendant too in case the images have a wrapper parent */
+.carousel-item > *,
+.carousel-item :is(picture, figure, img) {
+  height: 100%;
+}
+.carousel-item img {
+  /* Remove line height (typically done in a CSS reset) */
+  display: block;
+  /* Responsive width based on aspect ratio */
+  width: auto;
+}
+
+.carousel-item:first-of-type {
+  /* Allow users to fully scroll to the start */
+  scroll-snap-align: start;
+}
+.carousel-item:last-of-type {
+  /* Allow users to fully scroll to the end */
+  scroll-snap-align: end;
+}
+
+
+
+
     </style>
 </head>
+
+
+
 <body>
 <!--<h1> Flora and Friends </h1>-->
     <nav class="navbar">
@@ -191,72 +184,227 @@ img {vertical-align: middle;}
     </nav>
 
 
-<div class="slideshow-container">
+<!--New attempt of a carousel-->
 
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="https://i.imgur.com/qmqdWVk.jpeg" style="width:100%">
-  <div class="text">The Garden today</div>
+<div class="carousel">
+  <div
+    class="carousel-scroll-container"
+    role="region"
+    aria-label="Image carousel"
+    tabindex="0"
+  >
+    <ol class="carousel-media" role="list">
+      <li class="carousel-item">
+        <img src="https://i.imgur.com/qmqdWVk.jpeg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+        <li class="carousel-item">
+        <img src="https://www.westmont.edu/sites/default/files/SL22_0466.jpg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+        <li class="carousel-item">
+        <img src="https://i.imgur.com/QtCjTpy.jpeg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+        <li class="carousel-item">
+        <img src="https://i.imgur.com/VtyXXiK.jpeg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+      <li class="carousel-item">
+        <img src="https://i.imgur.com/KxHVmac.jpeg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+        <li class="carousel-item">
+        <img src="https://i.imgur.com/XZJKSgn.jpeg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+        <li class="carousel-item">
+        <img src="https://i.imgur.com/hBUJfrf.jpeg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+        <li class="carousel-item">
+        <img src="https://i.imgur.com/DhWbiL2.jpeg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+        <li class="carousel-item">
+        <img src="https://i.imgur.com/bbCMNpw.jpeg"
+          style="width:100%"
+          loading="lazy"
+          decoding="async">
+      </li>
+
+    </ol>
+  </div>
 </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="https://www.westmont.edu/sites/default/files/SL22_0466.jpg" style="width:100%">
-  <div class="text">Gardening interns</div>
-</div>
 
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="https://www.westmont.edu/sites/default/files/styles/16_9_900w/public/TC_2806.jpg?itok=lyWW_QBl" style="width:100%">
-  <div class="text">DC vegetables</div>
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-</div>
-
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-</script>
+<template id="carousel-controls">
+  <ol role="list" class="carousel-controls" aria-label="Navigation controls">
+    <li>
+      <button
+        class="carousel-control"
+        aria-label="Previous"
+        data-direction="start"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+    </li>
+    <li>
+      <button class="carousel-control" aria-label="Next" data-direction="end">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </li>
+  </ol>
+</template>
 
 
-<br>
-<!--<div style="text-align: center;">-->
-<!--   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2t5emF5aDc2MnY5YjFoMWd4ZW1qbTNyeGp6anZ4NGxhZGU1eGlwNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYAs5E2oIDCq9So/giphy.gif">-->
+
+
+<!--<div class="slideshow-container">-->
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext">1 / 9</div>-->
+<!--  <img src="https://i.imgur.com/qmqdWVk.jpeg" style="width:100%">-->
+<!--  <div class="text">The Garden today</div>-->
 <!--</div>-->
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext">2 / 9</div>-->
+<!--  <img src="https://www.westmont.edu/sites/default/files/SL22_0466.jpg" style="width:100%">-->
+<!--  <div class="text">Gardening interns</div>-->
+<!--</div>-->
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext">3 / 9</div>-->
+<!--  <img src="https://i.imgur.com/QtCjTpy.jpeg" style="width:100%">-->
+<!--  <div class="text">Nutritional biology</div>-->
+<!--</div>-->
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext"> 4 / 9</div>-->
+<!--  <img src="https://i.imgur.com/VtyXXiK.jpeg" style="width:100%">-->
+<!--  <div class="text">art</div>-->
+<!--</div>-->
+
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext">5 / 9</div>-->
+<!--  <img src="https://i.imgur.com/KxHVmac.jpeg" style="width:100%">-->
+<!--  <div class="text">bio</div>-->
+<!--</div>-->
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext">6 / 9</div>-->
+<!--  <img src="https://i.imgur.com/XZJKSgn.jpeg" style="width:100%">-->
+<!--  <div class="text">under the foliage</div>-->
+<!--</div>-->
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext">7 / 9</div>-->
+<!--  <img src="https://i.imgur.com/hBUJfrf.jpeg" style="width:100%">-->
+<!--  <div class="text">past garden</div>-->
+<!--</div>-->
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext">8 / 9</div>-->
+<!--  <img src="https://i.imgur.com/DhWbiL2.jpeg" style="width:100%">-->
+<!--  <div class="text">under the foliage</div>-->
+<!--</div>-->
+
+<!--<div class="mySlides fade">-->
+<!--  <div class="numbertext">9 / 9</div>-->
+<!--  <img src="https://i.imgur.com/bbCMNpw.jpeg" style="width:100%">-->
+<!--  <div class="text">under the foliage</div>-->
+<!--</div>-->
+
+<!--<a class="prev" onclick="plusSlides(-1)">❮</a>-->
+<!--<a class="next" onclick="plusSlides(1)">❯</a>-->
+
+<!--</div>-->
+<!--<br>-->
+
+<!--<div style="text-align:center">-->
+<!--  <span class="dot" onclick="currentSlide(1)"></span>-->
+<!--  <span class="dot" onclick="currentSlide(2)"></span>-->
+<!--  <span class="dot" onclick="currentSlide(3)"></span>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--let slideIndex = 1;-->
+<!--showSlides(slideIndex);-->
+
+<!--function plusSlides(n) {-->
+<!--  showSlides(slideIndex += n);-->
+<!--}-->
+
+<!--function currentSlide(n) {-->
+<!--  showSlides(slideIndex = n);-->
+<!--}-->
+
+<!--function showSlides(n) {-->
+<!--  let i;-->
+<!--  let slides = document.getElementsByClassName("mySlides");-->
+<!--  let dots = document.getElementsByClassName("dot");-->
+<!--  if (n > slides.length) {slideIndex = 1}-->
+<!--  if (n < 1) {slideIndex = slides.length}-->
+<!--  for (i = 0; i < slides.length; i++) {-->
+<!--    slides[i].style.display = "none";-->
+<!--  }-->
+<!--  for (i = 0; i < dots.length; i++) {-->
+<!--    dots[i].className = dots[i].className.replace(" active", "");-->
+<!--  }-->
+<!--  slides[slideIndex-1].style.display = "block";-->
+<!--  dots[slideIndex-1].className += " active";-->
+<!--}-->
+<!--</script>-->
+
+
+
+
+<!--<br>-->
+
 <br>
 
 
@@ -264,8 +412,6 @@ function showSlides(n) {
 <div style="overflow: auto;">
     <div class="container" style="position: relative;">
         <img src="https://www.westmont.edu/sites/default/files/styles/scale_900/public/Janell%20Balmaceda%20Standing.jpg?itok=K1nl_TPl" style="float: right; margin-left: 10px; margin-bottom: 5px; padding: 15px"; width="600px"; height="400px"; >
-        <div class="bottom-left" style="color: white" >Janell Balmaceda</div>
-        <div class="bottom-left" style="bottom: 0; color: white">Westmont Garden Manager</div>
     </div>
     <div class="card">
             <div class="card-body">
@@ -281,15 +427,19 @@ function showSlides(n) {
         <br>
         <br>
         <b>Biodiversity:</b> the garden provides a great place to marvel at God's creation, and praise Him for His glorious works! It's a great place to go birdwatching. The ecology class did some surveying in the garden, and one group found 15 different species of butterflies in the garden!
+        <br>
 
 
             <li><a href="https://docs.google.com/document/d/18z3Z-Q7TOxQOE86_QP3AvH40HWk4v6vL5D5QOzPIQtA/edit" style="color: #3565e0; font-weight: bold; font-size: 18px; padding-left: 30px">Birds of the Westmont Garden</a></li>
             <br>
             <br>
-            <li><a href="https://www.westmontbiodiversity.com/" style="color: #3565e0; font-weight: bold; font-size: 18px; padding-left: 30px"> Westmont Biodiversity</a> </li>
+            <li> <a href="https://i.imgur.com/6GeSOn3.jpeg" style="color: #3565e0; font-weight: bold; font-size: 18px; padding-left: 30px" target="blank"> Map to the Garden</a></li>
             <br>
-        <br>
+            <br>
+            <li><a href="https://www.westmontbiodiversity.com/" style="color: #3565e0; font-weight: bold; font-size: 18px; padding-left: 30px"> Westmont Biodiversity</a> </li>
+    <div class="c">Janell Balmaceda, <i>Westmont Garden Manager</i></div>
     </p>
+
                 </div>
         </div>
 </div>
