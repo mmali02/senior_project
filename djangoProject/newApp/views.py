@@ -60,6 +60,12 @@ def search(request):
             print("Number of fruits:", len(fruits))
             print("Number of vegetables:", len(vegetables))
 
+
+            # Check if any items are found after filtering
+            if not (plants or fruits or vegetables):
+                return render(request, "newApp/plant_info_base.html",
+                              {"error_message": "We're sorry, there are no plants matching your selected filters."})
+
             return render(
                 request,
                 "newApp/plant_info_base.html",

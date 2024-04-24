@@ -215,66 +215,68 @@
     </form>
 
 <br>
-    {% if fruit_list %}
+
+
+<!--the one that is working-->
     {% for fruit in fruit_list %}
     <div class="card">
-            <div class="card-body">
-    <b style="font-size: 20px;">{{fruit}}</b>
-    <ul>
-    <li><strong>Latin name:</strong> {{fruit.latin_name}}</li>
-    <li><strong>Season:</strong> {{fruit.season}}</li>
-    <li><strong>Sun:</strong> {{fruit.sun}}</li>
-    <li><strong>Water:</strong> {{fruit.water}}</li>
-    <li><strong>Soil:</strong> {{fruit.soil}}</li>
-    <li><strong>Description:</strong> {{fruit.description}}</li>
-        <br>
-        </ul>
-            </div>
+        <div class="card-body">
+            <b style="font-size: 20px;">{{fruit}}</b>
+            <ul>
+                <li><strong>Latin name:</strong> {{fruit.latin_name}}</li>
+                <li><strong>Season:</strong> {{fruit.season}}</li>
+                <li><strong>Sun:</strong> {{fruit.sun}}</li>
+                <li><strong>Water:</strong> {{fruit.water}}</li>
+                <li><strong>Soil:</strong> {{fruit.soil}}</li>
+                <li><strong>Description:</strong> {{fruit.description}}</li>
+            </ul>
+            <br>
         </div>
-    {% endfor %}
+    </div>
+{% endfor %}
 
-    {% elif veg_list %}
-    {% for veg in veg_list %}
-     <div class="card">
-            <div class="card-body">
-    <b style="font-size: 20px;">{{veg}}</b>
-    <ul>
-    <li><strong>Latin name:</strong> {{veg.latin_name}}</li>
-    <li><strong>Season:</strong> {{veg.season}}</li>
-    <li><strong>Sun:</strong> {{veg.sun}}</li>
-    <li><strong>Water:</strong> {{veg.water}}</li>
-    <li><strong>Soil:</strong> {{veg.soil}}</li>
-    <li><strong>Description:</strong> {{veg.description}}</li>
-        </ul>
-    <br>
-                </div>
-         </div>
-    {% endfor %}
+{% for veg in veg_list %}
+    <div class="card">
+        <div class="card-body">
+            <b style="font-size: 20px;">{{veg}}</b>
+            <ul>
+                <li><strong>Latin name:</strong> {{veg.latin_name}}</li>
+                <li><strong>Season:</strong> {{veg.season}}</li>
+                <li><strong>Sun:</strong> {{veg.sun}}</li>
+                <li><strong>Water:</strong> {{veg.water}}</li>
+                <li><strong>Soil:</strong> {{veg.soil}}</li>
+                <li><strong>Description:</strong> {{veg.description}}</li>
+            </ul>
+            <br>
+        </div>
+    </div>
+{% endfor %}
 
-    {% elif plant_list %}
-    {% for plant in plant_list %}
-     <div class="card">
-            <div class="card-body">
-    <b style="font-size: 20px;">{{plant}}</b>
-    <ul>
-    <li><strong>Latin name:</strong> {{plant.latin_name}}</li>
-    <li><strong>Season:</strong> {{plant.season}}</li>
-    <li><strong>Sun:</strong> {{plant.sun}}</li>
-    <li><strong>Water:</strong> {{plant.water}}</li>
-    <li><strong>Soil:</strong> {{plant.soil}}</li>
-    <li><strong>Description:</strong> {{plant.description}}</li>
-        </ul>
-    <br>
-                </div>
-         </div>
-    {% endfor %}
+{% for plant in plant_list %}
+    <div class="card">
+        <div class="card-body">
+            <b style="font-size: 20px;">{{plant}}</b>
+            <ul>
+                <li><strong>Latin name:</strong> {{plant.latin_name}}</li>
+                <li><strong>Season:</strong> {{plant.season}}</li>
+                <li><strong>Sun:</strong> {{plant.sun}}</li>
+                <li><strong>Water:</strong> {{plant.water}}</li>
+                <li><strong>Soil:</strong> {{plant.soil}}</li>
+                <li><strong>Description:</strong> {{plant.description}}</li>
+            </ul>
+            <br>
+        </div>
+    </div>
+{% endfor %}
 
-    {% else %}
+    {% if not fruit_list and not veg_list and not plant_list %}
     <div class="c">We're sorry, there are no plants matching your selected filters.</div>
     <p></p>
-    {% endif %}
+{% endif %}
+
+
 </div>
 
 </body>
-<!--    </div>-->
+
 </html>
