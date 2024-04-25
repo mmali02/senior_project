@@ -47,6 +47,28 @@
             justify-content: space-between;
             padding: 10px; /* Add padding to adjust the content */
         }
+         .navbar ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar ul li{
+            display: inline;
+        }
+
+        .navbar ul li a{
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active{
+            border-bottom-color: white;
+        }
+
         img {
             padding: 0;
             display: block;
@@ -163,7 +185,7 @@
                 <li><a href="{% url 'garden' %}">Westmont Garden</a></li>
 <!--                <li><a href="djangoProject/newApp/templates/newApp/garden.html">Westmont Garden</a></li>-->
                 <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdIb8ELM0L_m_T9loALpiSHbyGhSgu2G7BoaA82Saj-4VVn3A/viewform?usp=sf_link">Form</a></li>
-                <li><a href="{% url 'plant_info_base' %}">Search</a></li>
+                <li><a href="{% url 'plant_info_base' %}">Plant  Search</a></li>
             </ul>
         </div>
     </nav>
