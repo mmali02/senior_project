@@ -36,13 +36,6 @@ def search(request):
     waterfield_param = request.GET.get('waterfield')
     soilfield_param = request.GET.get('soilfield')
 
-    # Print the parameters to inspect them
-    print("Query:", query_param)
-    print("Seasonfield:", seasonfield_param)
-    print("Sunfield:", sunfield_param)
-    print("Waterfield:", waterfield_param)
-    print("Soilfield:", soilfield_param)
-
     if request.method == 'GET':
         search_form = SearchPlantForm(request.GET)
         if search_form.is_valid():
@@ -54,11 +47,6 @@ def search(request):
             soil = data.get("soilfield", "")
 
             plants, fruits, vegetables = search_plants(query, season, sun, water, soil)
-
-            # Print the length of each queryset for debugging
-            print("Number of plants:", len(plants))
-            print("Number of fruits:", len(fruits))
-            print("Number of vegetables:", len(vegetables))
 
 
             # Check if any items are found after filtering
